@@ -1,7 +1,3 @@
-//init string: ~^M~AT S7=45 S0=0 L1 V1 X4 &c1 E1 Q0^M
-//reset string: ^M~ATZ^M~
-
-
 var Modem = require('./lib/modem'),
     fs = require('fs');
 

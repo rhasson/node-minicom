@@ -1,0 +1,10 @@
+{
+    "name": "node-minicom",
+    "author": "roy hasson",
+    "version": "0.0.1",
+    "private": false,
+    "dependencies": {
+      "serialport": "1.0.8"
+    },
+    "engine": "node 0.8"
+}
