@@ -72,3 +72,4 @@ Minicom.prototype.addPort = function(ports) {
 }
 
 exports = module.exports = Minicom;
+exports = module.exports = list = require('./lib/modem').list;

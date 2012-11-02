@@ -3,6 +3,6 @@ var repl = require('repl'),
 
 var mc = new Mini(),
 	port = mc.addPort({
-		port: 'COM3',
+		port: '/dev/ttyACM1',
 		phone: '14444443322'
-	})
+	});
