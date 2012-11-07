@@ -1,5 +1,5 @@
 var repl = require('repl'),
-	Mini = require('./index');
+	Mini = require('../index');
 
 var mc = new Mini(),
 	port = mc.addPort({

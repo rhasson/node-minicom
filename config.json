@@ -2,7 +2,7 @@
   "defaults": 
   {
     "echo": false,
-    "dial_timeout": 2,
+    "dial_timeout": 2
   },
   "ports":
   [
@@ -11,32 +11,32 @@
       "phone": "14444447021",
       "type": "RCA DHG-536",
       "config": {
-        "auto_answer": true,
-      },
+        "auto_answer": true
+      }
     },
     {
       "port": "/dev/ttyACM1",
       "phone": "14444447003",
       "type": "Arris TM402",
       "config": {
-        "auto_answer": true,
-      },
+        "auto_answer": true
+      }
     },
     {
       "port": "/dev/ttyACM3",
       "phone": "14444447024",
       "type": "SMC D3GNV",
       "config": {
-        "auto_answer": true,
-      },
+        "auto_answer": true
+      }
     },
     {
       "port": "/dev/ttyACM0",
       "phone": "14444447010",
       "type": "Arris TG852",
       "config": {
-        "auto_answer": true,
-      },
-    },
-  ],
+        "auto_answer": true
+      }
+    }
+  ]
 }
