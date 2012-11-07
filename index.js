@@ -79,7 +79,18 @@ Minicom.prototype.defaultSuccessHandler = function(obj) {
 }
 
 Minicom.prototype.defaultErrorHandler = function(obj) {
+  var self = this,
+      newActive = {},
+      keys = Object.keys(self.activePorts);
+
   console.log('Index default error handler: ', obj.error);
+  
+  keys.forEach(function(key) {
+    if (obj.port !== key) {
+      newActive[key] = self.activePorts[key];
+    }
+  });
+  self.activePorts = newActive;
 }
 
 Minicom.prototype.list = Modem.list;
