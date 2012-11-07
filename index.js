@@ -64,7 +64,7 @@ Minicom.prototype.addPort = function(ports, success_cb, error_cb) {
         modem: sp,
         phone: ports.phone
       }
-      return sp;
+      return self.activePorts[port];
     }
     else {
       console.log('Failed to setup port: ',port);
