@@ -52,8 +52,8 @@ Minicom.prototype.addPort = function(ports, success_cb, error_cb) {
       keys = Object.keys(self.activePorts),
       port = ports.port;
 
-  success = (typeof success_cb === 'function') ? success_cb : defaultSuccessHandler;
-  error = (typeof error_cb === 'function') ? error_cb : defaultErrorHandler;
+  success = (typeof success_cb === 'function') ? success_cb : self.defaultSuccessHandler;
+  error = (typeof error_cb === 'function') ? error_cb : self.defaultErrorHandler;
 
   if (keys.indexOf(port) < 0) {
     sp = new Modem(port);
