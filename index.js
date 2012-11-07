@@ -47,15 +47,19 @@ Minicom.prototype.loadConfig = function(file, cb) {
   });
 }
 
-Minicom.prototype.addPort = function(ports) {
+Minicom.prototype.addPort = function(ports, success_cb, error_cb) {
   var self = this,
       keys = Object.keys(self.activePorts),
       port = ports.port;
 
-  //if (port.indexOf('dev') < 0) port = '/dev/' + port;
+  success = (typeof success_cb === 'function') ? success_cb : defaultSuccessHandler;
+  error = (typeof error_cb === 'function') ? error_cb : defaultErrorHandler;
+
   if (keys.indexOf(port) < 0) {
     sp = new Modem(port);
     if (sp) {
+      sp.on('error', error);
+      sp.on('data', success);
       self.activePorts[port] = {
         modem: sp,
         phone: ports.phone
@@ -68,6 +72,14 @@ Minicom.prototype.addPort = function(ports) {
     }
   }
   return self.activePorts[port];
+}
+
+Minicom.prototype.defaultSuccessHandler = function(obj) {
+  console.log('Index default success handler: ', obj.data);
+}
+
+Minicom.prototype.defaultErrorHandler = function(obj) {
+  console.log('Index default error handler: ', obj.error);
 }
 
 Minicom.prototype.list = Modem.list;
