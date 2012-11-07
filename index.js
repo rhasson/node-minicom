@@ -8,13 +8,11 @@ var Modem = require('./lib/modem'),
 * ports = [ {port: /dev/ttyACM0, phone: 1234443322, type: some string, config: {auto_answer: true/false} } ]
 */
 var Minicom = function(arg) {
-  this.activePorts = [];
+  this.activePorts = {};
   this.detectedPorts = {};
   this.config = {};
 
   if (!(this instanceof Minicom)) return new Error('Must be initialized before being used');
-
-  ee.call(this);
 
   var self = this;
   var keys = Object.keys(arg);
@@ -53,7 +51,7 @@ Minicom.prototype.addPort = function(ports) {
       keys = Object.keys(self.activePorts),
       port = ports.port;
 
-  if (port.indexOf('dev') < 0) port = '/dev/' + port;
+  //if (port.indexOf('dev') < 0) port = '/dev/' + port;
   if (keys.indexOf(port) < 0) {
     sp = new Modem(port);
     if (sp) {
@@ -71,5 +69,7 @@ Minicom.prototype.addPort = function(ports) {
   return self.activePorts[port];
 }
 
+Minicom.prototype.list = Modem.list;
+
 exports = module.exports = Minicom;
-exports = module.exports = list = require('./lib/modem').list;
+//exports = module.exports = list = require('./lib/modem').list;
