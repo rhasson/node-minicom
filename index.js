@@ -15,7 +15,7 @@ var Minicom = function(arg) {
   if (!(this instanceof Minicom)) return new Error('Must be initialized before being used');
 
   var self = this;
-  var keys = Object.keys(arg);
+  var keys = arg ? Object.keys(arg) : [];
   if (keys.length) {
     if (keys.indexOf('defaults') !== -1) this.config.defaults = args.defaults;
     if (keys.indexOf('ports') !== -1) this.config.ports = args.ports;
@@ -23,6 +23,7 @@ var Minicom = function(arg) {
   } else {
     this.loadConfig('config.json', function(err) {
       if (!err) self.initPorts();
+      else return self;
     });
   }
 }
