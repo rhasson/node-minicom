@@ -5,7 +5,7 @@ var Modem = require('./lib/modem'),
 * Constructor for Minicom
 * input is a config object with defaults and array of ports
 * defaults = {echo: true/false, dial_timeout: # in sec}
-* ports = [ {port: /dev/ttyACM0, phone: 1234443322, type: some string, config: {auto_answer: true/false} } ]
+* ports = [ {port: '/dev/ttyACM0', phone: '1234443322', type: 'some string', config: {auto_answer: true/false} } ]
 */
 var Minicom = function(arg) {
   this.activePorts = {};
@@ -90,4 +90,3 @@ Minicom.prototype.defaultErrorHandler = function(obj) {
 Minicom.prototype.list = Modem.list;
 
 exports = module.exports = Minicom;
-//exports = module.exports = list = require('./lib/modem').list;
