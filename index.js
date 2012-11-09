@@ -58,8 +58,8 @@ Minicom.prototype.addPort = function(ports, success_cb, error_cb) {
   if (keys.indexOf(port) < 0) {
     sp = new Modem(port);
     if (sp) {
-      sp.on('error', error);
-      sp.on('data', success);
+//      sp.on('error', error);
+//      sp.on('data', success);
       self.activePorts[port] = {
         modem: sp,
         phone: ports.phone,
