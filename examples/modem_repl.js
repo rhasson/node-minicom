@@ -27,6 +27,9 @@ var mc = new Mini(),
   });
   port2.modem.on('call', function(data) {
   	console.log('Port2 call: ', data);
+	if (data.state === 'CALL_RINGING') {
+		port2.modem.writeRaw('A');
+	}
 		//if (data.data.code === 'RING') port2.modem.write('ATA');
   });
 
